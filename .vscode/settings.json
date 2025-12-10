@@ -1,5 +1,10 @@
 {
 	"files.associations": {
 		"*.css": "tailwindcss"
-	}
+	},
+	"editor.formatOnSave": false,
+	"cSpell.words": [
+		"tabler",
+		"shadcn",
+	]
 }
