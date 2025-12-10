@@ -1,7 +1,7 @@
 import { IconBrandGithub, IconBrandInstagram, IconBrandX } from "@tabler/icons-svelte";
 
 const site = {
-    title: 'Svelte Starter',
+    title: 'Simple Svelte Starter',
     description: 'A starter template built with SvelteKit, Tailwind CSS and more',
     url: 'https://github.com/huangyuzhang/svelte-starter',
     author: 'Simon Huang',

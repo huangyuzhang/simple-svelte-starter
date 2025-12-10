@@ -12,7 +12,7 @@
     >
     </div>
     <div
-      class="flex flex-col w-full h-full border-t border-l divide-y divide-dashed divide-neutral-300 dark:divide-neutral-700 border-neutral-300 dark:border-neutral-900"
+      class="flex flex-col w-full h-full border-t border-l border-dashed divide-y divide-dashed divide-neutral-300 dark:divide-neutral-700 border-neutral-300 dark:border-neutral-900"
     >
       <SquareLine class={className} />
       <SquareLine class={className} />
@@ -31,7 +31,7 @@
     >
     </div>
     <div
-      class="flex flex-col w-full h-full border-t border-l divide-y divide-dashed divide-neutral-300 dark:divide-neutral-700 border-neutral-300 dark:border-neutral-900"
+      class="flex flex-col w-full h-full border-t border-l border-dashed divide-y divide-dashed divide-neutral-300 dark:divide-neutral-700 border-neutral-300 dark:border-neutral-900"
     >
       <SquareLine class={className} />
       <SquareLine class={className} />
