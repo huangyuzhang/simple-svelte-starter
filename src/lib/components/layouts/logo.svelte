@@ -1,17 +1,19 @@
 <script lang="ts">
-	import { site } from "$lib/config";
+	import { site } from '$lib/config';
 </script>
 
 <a
-  href="/"
-  class="h-5 text-base group relative z-30 flex items-center space-x-1.5 text-black dark:text-white font-semibold whitespace-nowrap"
+	href="/"
+	class="h-5 text-base group relative z-30 flex items-center space-x-1.5 text-black dark:text-white font-semibold whitespace-nowrap"
 >
-  <span class="text-xl -translate-y-0.5 group-hover:-rotate-12 group-hover:scale-[1.2] ease-in-out duration-300">
-    ✦
-  </span>
+	<span
+		class="text-xl -translate-y-0.5 group-hover:-rotate-12 group-hover:scale-[1.2] ease-in-out duration-300"
+	>
+		✦
+	</span>
 
-  <!-- Logo Text -->
-  <span class="-translate-y-0.5">
-    {site.title}
-  </span>
+	<!-- Logo Text -->
+	<span class="-translate-y-0.5">
+		{site.title}
+	</span>
 </a>

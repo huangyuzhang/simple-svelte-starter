@@ -1,11 +1,11 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
-  	import { ModeWatcher } from "mode-watcher";
+	import { ModeWatcher } from 'mode-watcher';
 	import 'nprogress/nprogress.css';
 	import NProgress from 'nprogress';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
-	import { Toaster } from "$lib/components/ui/sonner";
+	import { Toaster } from '$lib/components/ui/sonner';
 
 	let { children } = $props();
 
@@ -16,7 +16,7 @@
 		speed: 500,
 		trickleSpeed: 200
 	});
-	
+
 	beforeNavigate(() => {
 		// set NProgress color to primary
 		const style = document.createElement('style');

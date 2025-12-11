@@ -1,44 +1,38 @@
 <script>
-	import SquareLine from "./square-line.svelte";
-    let { class: className = '' } = $props();
+	import SquareLine from './square-line.svelte';
+	let { class: className = '' } = $props();
 </script>
 
 <div class="absolute w-full h-auto" style="z-index:-1">
-  <div
-    class="absolute top-0 left-0 w-1/2 h-auto bg-neutral-100 dark:bg-neutral-800"
-  >
-    <div
-      class="absolute inset-0 z-30 w-full h-full pointer-events-none bg-gradient-to-tl from-white dark:from-neutral-950 from-50% via-90% to-100% via-transparent to-transparent"
-    >
-    </div>
-    <div
-      class="flex flex-col w-full h-full border-t border-l border-dashed divide-y divide-dashed divide-neutral-300 dark:divide-neutral-700 border-neutral-300 dark:border-neutral-900"
-    >
-      <SquareLine class={className} />
-      <SquareLine class={className} />
-      <SquareLine class={className} />
-      <SquareLine class={className} />
-      <SquareLine class={className} />
-      <SquareLine class={className} />
-    </div>
-  </div>
+	<div class="absolute top-0 left-0 w-1/2 h-auto bg-neutral-100 dark:bg-neutral-800">
+		<div
+			class="absolute inset-0 z-30 w-full h-full pointer-events-none bg-gradient-to-tl from-white dark:from-neutral-950 from-50% via-90% to-100% via-transparent to-transparent"
+		></div>
+		<div
+			class="flex flex-col w-full h-full border-t border-l border-dashed divide-y divide-dashed divide-neutral-300 dark:divide-neutral-700 border-neutral-300 dark:border-neutral-900"
+		>
+			<SquareLine class={className} />
+			<SquareLine class={className} />
+			<SquareLine class={className} />
+			<SquareLine class={className} />
+			<SquareLine class={className} />
+			<SquareLine class={className} />
+		</div>
+	</div>
 
-  <div
-    class="absolute top-0 right-0 w-1/2 h-auto bg-neutral-100 dark:bg-neutral-800"
-  >
-    <div
-      class="absolute inset-0 z-30 w-full h-full pointer-events-none bg-linear-to-tr from-white dark:from-neutral-950 from-50% via-90% to-100% via-transparent to-transparent"
-    >
-    </div>
-    <div
-      class="flex flex-col w-full h-full border-t border-l border-dashed divide-y divide-dashed divide-neutral-300 dark:divide-neutral-700 border-neutral-300 dark:border-neutral-900"
-    >
-      <SquareLine class={className} />
-      <SquareLine class={className} />
-      <SquareLine class={className} />
-      <SquareLine class={className} />
-      <SquareLine class={className} />
-      <SquareLine class={className} />
-    </div>
-  </div>
+	<div class="absolute top-0 right-0 w-1/2 h-auto bg-neutral-100 dark:bg-neutral-800">
+		<div
+			class="absolute inset-0 z-30 w-full h-full pointer-events-none bg-linear-to-tr from-white dark:from-neutral-950 from-50% via-90% to-100% via-transparent to-transparent"
+		></div>
+		<div
+			class="flex flex-col w-full h-full border-t border-l border-dashed divide-y divide-dashed divide-neutral-300 dark:divide-neutral-700 border-neutral-300 dark:border-neutral-900"
+		>
+			<SquareLine class={className} />
+			<SquareLine class={className} />
+			<SquareLine class={className} />
+			<SquareLine class={className} />
+			<SquareLine class={className} />
+			<SquareLine class={className} />
+		</div>
+	</div>
 </div>

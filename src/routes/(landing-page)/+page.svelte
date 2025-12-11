@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { site } from "$lib/config";
-	import Hero from "./hero.svelte";
+	import { site } from '$lib/config';
+	import Hero from './hero.svelte';
 </script>
 
 <svelte:head>
