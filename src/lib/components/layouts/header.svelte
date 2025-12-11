@@ -21,25 +21,25 @@
 
 	const evaluateHeaderPosition = () => {
 		// browser only
-        if (typeof window !== 'undefined') {
-            isScrolled = window.scrollY > 16;
-        }
-    };
+		if (typeof window !== 'undefined') {
+			isScrolled = window.scrollY > 16;
+		}
+	};
 
 	$effect(() => {
 		// browser only
-        if (typeof window !== 'undefined') {
+		if (typeof window !== 'undefined') {
 			// evaluate header position immediately after the component is mounted
-            evaluateHeaderPosition(); 
-            window.addEventListener('scroll', evaluateHeaderPosition, { passive: true });
-        }
+			evaluateHeaderPosition();
+			window.addEventListener('scroll', evaluateHeaderPosition, { passive: true });
+		}
 
-        return () => {
-            if (typeof window !== 'undefined') {
-                window.removeEventListener('scroll', evaluateHeaderPosition);
-            }
-        };
-    });
+		return () => {
+			if (typeof window !== 'undefined') {
+				window.removeEventListener('scroll', evaluateHeaderPosition);
+			}
+		};
+	});
 </script>
 
 <!-- a placeholder for reserving space for the header -->
