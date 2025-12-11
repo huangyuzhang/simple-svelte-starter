@@ -5,6 +5,7 @@
 	import type { Post } from '$lib/types/content';
 	import { IconCalendar } from '@tabler/icons-svelte';
 	import { ossContent } from '$lib/oss';
+	import { getTagSlug } from '$lib/utils';
 
 	let { post }: { post: Partial<Post> } = $props();
 </script>
@@ -33,7 +34,7 @@
 			<div class="mb-2 flex items-center gap-1">
 				<div class="flex flex-wrap gap-1">
 					{#each post.tags.slice(0, 3) as tag}
-						<Badge variant="outline" class="capitalize">
+						<Badge variant="outline" class="capitalize" href={`/tags/${getTagSlug(tag)}`}>
 							{tag}
 						</Badge>
 					{/each}
