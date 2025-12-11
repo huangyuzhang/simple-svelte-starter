@@ -5,6 +5,8 @@
 	import Logo from '$lib/components/layouts/logo.svelte';
 	import I18nToggle from '../i18n-toggle.svelte';
 
+	let { headerWidth = layout.headerWidth } = $props();
+
 	let isScrolled = $state(false);
 
 	const unScrolledContainerClasses = ['border-transparent'];
@@ -51,7 +53,7 @@
 >
 	<div
 		class={cn(
-			layout.headerWidth,
+			headerWidth,
 			'flex items-center justify-between h-full pl-6 pr-4 mx-auto border-b border-l-0 border-r-0 select-none lg:border-r lg:border-l lg:rounded-b-xl duration-300 ease-out',
 			isScrolled ? scrolledContainerClasses.join(' ') : unScrolledContainerClasses.join(' ')
 		)}

@@ -8,7 +8,7 @@
 </script>
 
 <SquareLines class="" />
-<Header />
+<Header headerWidth={layout.wideWidth} />
 <div class={cn(layout.wideWidth, 'min-h-screen mx-auto')}>
 	{@render children?.()}
 </div>

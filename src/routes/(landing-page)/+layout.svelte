@@ -1,8 +1,8 @@
 <script>
-	import Base from "$lib/components/layouts/base.svelte";
-    let { children } = $props();
+	import Wide from '$lib/components/layouts/wide.svelte';
+	let { children } = $props();
 </script>
 
-<Base>
-    {@render children?.()}
-</Base>
+<Wide>
+	{@render children?.()}
+</Wide>
