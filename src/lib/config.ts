@@ -26,6 +26,10 @@ const nav = {
 			url: '/posts'
 		},
 		{
+			name: m.nav_tags(),
+			url: '/tags'
+		},
+		{
 			name: m.nav_products(),
 			url: '#'
 		},

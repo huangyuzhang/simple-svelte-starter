@@ -3,12 +3,5 @@
 		"*.css": "tailwindcss"
 	},
 	"editor.formatOnSave": false,
-	"cSpell.words": [
-		"fontsource",
-		"mdsvex",
-		"nunito",
-		"oldschool",
-		"shadcn",
-		"tabler"
-	]
+	"cSpell.words": ["fontsource", "mdsvex", "nunito", "oldschool", "shadcn", "tabler"]
 }

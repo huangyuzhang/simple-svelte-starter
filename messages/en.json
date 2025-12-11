@@ -1,5 +1,8 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"layout": {
+		"home": "Home"
+	},
 	"nav_home": "Home",
 	"footer_copyright": "© {year} {site} All Rights Reserved.",
 	"change_languages": "Change Languages",

@@ -1,21 +1,21 @@
 <script lang="ts">
 	import { site } from '$lib/config';
 	import { m } from '$lib/paraglide/messages';
+	import { Badge } from '$lib/components/ui/badge';
 	import { Button } from '$lib/components/ui/button';
-	import { getLocale } from '$lib/paraglide/runtime.js';
-	import PostCard from '$lib/components/collections/post-card.svelte';
-
+	import { getLocale } from '$lib/paraglide/runtime';
 	let { data } = $props();
+
 	const locale = getLocale();
+
 	const content = {
 		en: {
-			title: 'Posts',
-			description:
-				'Explore our collection of marketing insights, guides, and best practices to help you grow your business.'
+			title: 'Tags',
+			description: 'Explore all tags'
 		},
 		zh: {
-			title: '文章',
-			description: '探索我们的营销知识库，帮助您实现您的目标。'
+			title: '标签',
+			description: '探索所有标签'
 		}
 	};
 </script>
@@ -39,9 +39,11 @@
 
 <!-- Page Content -->
 <section class="relative overflow-hidden px-4 my-8 sm:px-6 lg:px-8">
-	<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-		{#each data.posts as post}
-			<PostCard {post} />
+	<div class="flex gap-4 md:grid-cols-2 lg:grid-cols-3">
+		{#each data.tags as tag}
+			<Badge variant="outline" href={`/tags/${tag.slug}`}>
+				<span>{tag.name}</span>
+			</Badge>
 		{/each}
 	</div>
 </section>

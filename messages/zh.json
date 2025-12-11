@@ -1,10 +1,14 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"layout": {
+		"home": "首页"
+	},
 	"nav_home": "首页",
 	"footer_copyright": "© {year} {site} 保留所有权利。",
 	"change_languages": "切换语言",
 	"btn_contact_us": "联系我们",
 	"nav_about": "关于",
 	"nav_posts": "文章",
-	"nav_products": "产品"
+	"nav_products": "产品",
+	"nav_tags": "标签"
 }
