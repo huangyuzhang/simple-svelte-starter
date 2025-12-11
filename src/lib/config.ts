@@ -23,7 +23,7 @@ const nav = {
 		},
 		{
 			name: m.nav_posts(),
-			url: '#'
+			url: '/posts'
 		},
 		{
 			name: m.nav_products(),
