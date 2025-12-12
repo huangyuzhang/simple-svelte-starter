@@ -12,7 +12,7 @@
 			<div class="flex gap-1">
 				{#each post.tags as tag, index}
 					{#if index <= 2}
-						<Badge variant="secondary" class="font-normal" href={`/tags/${getTagSlug(tag)}`}
+						<Badge variant="outline" class="font-normal" href={`/tags/${getTagSlug(tag)}`}
 							>{tag}</Badge
 						>
 					{/if}

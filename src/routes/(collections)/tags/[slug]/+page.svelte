@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-	<title>{site.title}</title>
+	<title>{data.name} - {site.title}</title>
 </svelte:head>
 
 <!-- Page Header -->
@@ -26,7 +26,9 @@
 	<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 		<!-- Title & Description -->
 		<div>
-			<h1 class="text-3xl font-bold tracking-tight">{content[locale].title}: {data.tag.name}</h1>
+			<h1 class="text-3xl font-bold tracking-tight">
+				{content[locale].title}: <span class="underline">{data.name}</span>
+			</h1>
 			<p class="text-muted-foreground"></p>
 		</div>
 		<!-- Action Button -->
@@ -36,9 +38,9 @@
 
 <!-- Page Content -->
 <section class="relative overflow-hidden px-4 my-8 sm:px-6 lg:px-8">
-	{#if data.tag.posts.length > 0}
+	{#if data.posts.length > 0}
 		<div class="flex flex-col">
-			{#each data.tag.posts as post}
+			{#each data.posts as post}
 				<PostListItem {post} />
 			{/each}
 		</div>

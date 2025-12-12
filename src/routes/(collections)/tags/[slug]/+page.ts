@@ -1,76 +1,85 @@
 import type { Post } from '$lib/types/content';
-import { error, type ServerLoadEvent } from '@sveltejs/kit';
+import { getTagSlug } from '$lib/utils';
+import { error, type LoadEvent } from '@sveltejs/kit';
 
-type Tag = {
-	slug: string;
+// 定义 Markdown 元数据的预期结构，避免过多使用 any
+interface PostMetadata {
+	title: string;
+	date: string;
+	tags?: string[] | string;
+	[key: string]: unknown;
+}
+
+type TagReturn = {
 	name: string;
+	slug: string;
 	posts: Post[];
 };
-async function getPosts(): Promise<Post[]> {
-	const paths = import.meta.glob<Record<string, any>, string>('/src/collections/posts/*.md', {
+
+export async function load({ params }: LoadEvent): Promise<TagReturn> {
+	const requestedSlug = params.slug;
+
+	if (!requestedSlug) {
+		throw error(404, 'Tag slug is missing.');
+	}
+
+	// 使用泛型指定 glob 的返回类型
+	const modules = import.meta.glob<PostMetadata>('/src/collections/posts/*.md', {
 		eager: true
 	});
 
-	const posts: Post[] = Object.entries(paths).map(([path, file]) => {
-		const slug = path.split('/').at(-1)?.replace('.md', '');
-		const metadata = file.metadata as Record<string, any>;
+	const filteredPosts: Post[] = [];
+	let originalTagName: string | undefined;
 
-		let tags: string[] = [];
-		if (Array.isArray(metadata.tags)) {
-			tags = metadata.tags.filter(
-				(tag): tag is string => typeof tag === 'string' && tag.length > 0
-			);
-		} else if (typeof metadata.tags === 'string') {
-			tags = [metadata.tags];
+	// 使用 for...in 或 Object.entries 进行单次遍历
+	for (const [path, module] of Object.entries(modules)) {
+		const metadata = module.metadata;
+
+		if (!metadata) {
+			console.warn(`Skipping post ${path}: Missing metadata.`);
+			continue;
 		}
 
-		return { slug, tags, ...metadata } as Post;
-	});
+		// 标准化标签：统一转为 string[]
+		const rawTags = metadata.tags;
+		const tags: string[] = Array.isArray(rawTags)
+			? rawTags.filter((t): t is string => typeof t === 'string' && t.length > 0)
+			: typeof rawTags === 'string' && rawTags.length > 0
+				? [rawTags]
+				: [];
 
-	return posts.sort((a, b) => {
-		return new Date(b.date).getTime() - new Date(a.date).getTime();
-	});
-}
+		// 检查当前文章是否包含目标 Tag Slug
+		// 同时在这里捕获原始标签名（例如：匹配到了 "sveltekit" slug，记录原始名为 "SvelteKit"）
+		const matchedTag = tags.find((tag) => getTagSlug(tag) === requestedSlug);
 
-async function getTags(): Promise<Tag[]> {
-	const posts = await getPosts();
-
-	const uniqueTagsMap = new Map<string, string>();
-
-	posts.forEach((post) => {
-		post.tags.forEach((originalTag) => {
-			const slug = originalTag.toLowerCase().replace(/ /g, '-');
-			if (!uniqueTagsMap.has(slug)) {
-				uniqueTagsMap.set(slug, originalTag);
+		if (matchedTag) {
+			// 如果还没找到用于显示的原始标签名，则记录下来
+			if (!originalTagName) {
+				originalTagName = matchedTag;
 			}
-		});
-	});
 
-	const tags: Tag[] = Array.from(uniqueTagsMap.entries()).map(([slug, name]) => {
-		const filteredPosts = posts.filter((post) => {
-			return post.tags.some((postTag) => postTag.toLowerCase().replace(/ /g, '-') === slug);
-		});
+			const slug = path.split('/').at(-1)?.replace('.md', '') ?? '';
 
-		return {
-			slug: slug,
-			name: name,
-			posts: filteredPosts
-		};
-	});
-
-	return tags;
-}
-export async function load({ params }: ServerLoadEvent): Promise<{ tag: Tag }> {
-	const slug = params.slug;
-	try {
-		const tags = await getTags();
-		const foundTag = tags.find((tag) => tag.slug === slug);
-		if (!foundTag) {
-			throw error(404, `Could not find tag with slug: ${slug}`);
+			// 构建 Post 对象并推入结果数组
+			filteredPosts.push({
+				slug,
+				tags,
+				...metadata
+			} as Post);
 		}
-		return { tag: foundTag };
-	} catch (e) {
-		console.error('Error loading tags:', e);
-		throw error(404, `Could not find ${slug}`);
 	}
+
+	if (filteredPosts.length === 0) {
+		throw error(404, `Could not find any posts for tag: ${requestedSlug}`);
+	}
+
+	// 按日期降序排序
+	filteredPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+	return {
+		// 如果这里依然是 undefined，说明虽然找到了文章但逻辑有漏网之鱼，兜底使用 params.slug
+		name: originalTagName ?? requestedSlug,
+		slug: requestedSlug,
+		posts: filteredPosts
+	};
 }

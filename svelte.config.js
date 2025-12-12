@@ -4,7 +4,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
-	extensions: ['.svx', '.svx', '.md'],
+	extensions: ['.svx', '.md'],
 	smartypants: {
 		dashes: 'oldschool'
 	},

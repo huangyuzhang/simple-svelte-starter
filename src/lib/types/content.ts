@@ -12,3 +12,9 @@ export interface Post {
 	content: any;
 	image?: string;
 }
+
+export interface Tag {
+	slug: string; // lower-cased, hyphenated version (e.g., 'java-script')
+	name: string; // Original tag name (e.g., 'JavaScript')
+	posts: Post[];
+}
