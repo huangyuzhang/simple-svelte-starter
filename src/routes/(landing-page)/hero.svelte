@@ -1,6 +1,7 @@
 <script>
 	import { Button } from '$lib/components/ui/button';
 	import { getLocale } from '$lib/paraglide/runtime';
+	import IllustrationCelebration from '$lib/assets/illustrations/celebration.svg';
 	import { fade, fly } from 'svelte/transition';
 	const locale = getLocale();
 	const data = {
@@ -45,15 +46,11 @@
 			<!-- Image -->
 			<div class="order-1 lg:order-2" in:fly={{ y: 50, duration: 1000 }}>
 				<div class="relative mx-auto max-w-[500px]">
-					<div class="aspect-square overflow-hidden rounded-2xl bg-muted">
-						<img
-							src="https://placehold.co/600x600/ccc/777?font=noto-sans&text=Simple%5CnSvelte%5CnStarter"
-							alt="Placeholder"
-							class="h-full w-full object-cover"
-						/>
+					<div class="aspect-square overflow-hidden rounded-2xl">
+						<img src={IllustrationCelebration} alt="Placeholder" class="size-full object-cover" />
 					</div>
 					<div
-						class="absolute -bottom-4 -right-4 h-full w-full rounded-2xl border-6 border-dashed border-muted"
+						class="absolute -bottom-4 -right-4 size-full rounded-2xl border-0 border-dashed border-muted"
 					></div>
 				</div>
 			</div>
