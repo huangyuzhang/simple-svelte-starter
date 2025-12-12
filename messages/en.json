@@ -11,5 +11,7 @@
 	"nav_posts": "Posts",
 	"nav_products": "Products",
 	"nav_tags": "Tags",
-	"navigation": "Navigation"
+	"navigation": "Navigation",
+	"search": "Search",
+	"no_results_found": "No results found."
 }

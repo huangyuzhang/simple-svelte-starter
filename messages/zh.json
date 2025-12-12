@@ -11,5 +11,7 @@
 	"nav_posts": "文章",
 	"nav_products": "产品",
 	"nav_tags": "标签",
-	"navigation": "导航"
+	"navigation": "导航",
+	"search": "搜索",
+	"no_results_found": "没有找到结果。"
 }

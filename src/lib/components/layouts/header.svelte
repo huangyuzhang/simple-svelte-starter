@@ -7,6 +7,7 @@
 	import Navigation from './navigation.svelte';
 	import MobileNav from './mobile-nav.svelte';
 	import { isMobile } from '$lib/hooks/isMobile';
+	import SearchDialog from './search-dialog.svelte';
 
 	let { headerWidth = layout.headerWidth } = $props();
 
@@ -64,10 +65,11 @@
 		)}
 	>
 		<Logo />
-		<div class="flex items-center gap-2">
+		<div class="flex items-center gap-1">
 			{#if !$mobile}
 				<Navigation />
 			{/if}
+			<SearchDialog />
 			<I18nToggle />
 			<ModeToggle />
 			{#if $mobile}
