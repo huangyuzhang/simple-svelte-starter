@@ -1,4 +1,4 @@
-import { authors } from '$lib/config/authors';
+import { authors } from '$lib/config/index';
 import { error } from '@sveltejs/kit';
 
 export async function load({ params }) {

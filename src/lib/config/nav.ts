@@ -1,25 +1,7 @@
 import { m } from '$lib/paraglide/messages';
 import { IconBrandGithub, IconBrandInstagram, IconBrandX } from '@tabler/icons-svelte';
 
-const site = {
-	title: 'Simple Svelte Starter',
-	description: 'A starter template built with SvelteKit, Tailwind CSS and more',
-	url: 'https://github.com/huangyuzhang/svelte-starter',
-	author: 'Simon Huang'
-};
-
-const layout = {
-	headerWidth: 'max-w-6xl',
-	footerWidth: 'max-w-6xl',
-	baseWidth: 'max-w-5xl',
-	wideWidth: 'max-w-6xl',
-	post: {
-		paperWidth: 'max-w-4xl',
-		contentWidth: 'max-w-2xl'
-	}
-};
-
-const nav = {
+export const nav = {
 	main: [
 		{
 			name: m.nav_home(),
@@ -57,5 +39,3 @@ const nav = {
 		}
 	]
 };
-
-export { site, layout, nav };

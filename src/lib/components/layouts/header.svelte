@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { layout, nav } from '$lib/config';
 	import { cn } from '$lib/utils';
 	import ModeToggle from '$lib/components/mode-toggle.svelte';
 	import Logo from '$lib/components/layouts/logo.svelte';
 	import I18nToggle from '../i18n-toggle.svelte';
+	import { layout, nav } from '$lib/config/index';
 
 	let { headerWidth = layout.headerWidth } = $props();
 

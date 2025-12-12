@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
-	import { site } from '$lib/config';
+	import { site } from '$lib/config/index';
 	import PostListItem from '$lib/components/collections/post-list-item.svelte';
 	import { m } from '$lib/paraglide/messages';
 	import { getLocale } from '$lib/paraglide/runtime';

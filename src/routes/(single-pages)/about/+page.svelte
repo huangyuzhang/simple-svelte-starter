@@ -1,5 +1,5 @@
 <script>
-	import { site } from '$lib/config';
+	import { site } from '$lib/config/index';
 	import { Button } from '$lib/components/ui/button';
 	import { m } from '$lib/paraglide/messages';
 	import { getLocale } from '$lib/paraglide/runtime';

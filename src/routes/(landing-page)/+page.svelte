@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { site } from '$lib/config';
+	import { site } from '$lib/config/index';
 	import Hero from './hero.svelte';
 </script>
 

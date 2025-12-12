@@ -3,7 +3,7 @@
 	import Header from './header.svelte';
 	import Footer from './footer.svelte';
 	import { cn } from '$lib/utils';
-	import { layout } from '$lib/config';
+	import { layout } from '$lib/config/index';
 	let { children } = $props();
 </script>
 

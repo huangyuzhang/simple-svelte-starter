@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { layout, nav, site } from '$lib/config';
+	import { site, layout, nav } from '$lib/config/index';
 	import { m } from '$lib/paraglide/messages';
 	import { cn } from '$lib/utils';
 	import Logo from './logo.svelte';

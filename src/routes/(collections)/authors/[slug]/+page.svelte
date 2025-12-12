@@ -2,7 +2,7 @@
 	import Github from '@lucide/svelte/icons/github';
 	import Twitter from '@lucide/svelte/icons/twitter';
 	import { Button } from '$lib/components/ui/button';
-	import { site } from '$lib/config';
+	import { site } from '$lib/config/index';
 	import PostListItem from '$lib/components/collections/post-list-item.svelte';
 
 	let { data } = $props();

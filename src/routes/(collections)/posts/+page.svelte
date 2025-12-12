@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { site } from '$lib/config';
+	import { site } from '$lib/config/index';
 	import { m } from '$lib/paraglide/messages';
 	import * as Tabs from '$lib/components/ui/tabs';
 	import { getLocale } from '$lib/paraglide/runtime';
