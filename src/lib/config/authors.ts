@@ -1,7 +1,7 @@
 export const authors: Record<string, Author> = {
 	simon: {
 		name: 'Simon Huang',
-		bio: 'Frontend Developer & UI/UX Enthusiast',
+		bio: 'Data Analyst, Indie Maker, Open Source Enthusiast',
 		avatar: 'https://github.com/huangyuzhang.png',
 		github: 'https://github.com/huangyuzhang'
 	}

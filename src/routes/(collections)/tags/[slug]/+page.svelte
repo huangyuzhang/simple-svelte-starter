@@ -31,7 +31,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.name} - {site.title}</title>
+	<title>{data.name} - {content[locale].title} - {site.title}</title>
 </svelte:head>
 
 <section class="relative overflow-hidden px-4 my-8 sm:px-6 lg:px-8">

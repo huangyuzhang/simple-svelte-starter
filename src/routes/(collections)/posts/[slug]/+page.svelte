@@ -2,13 +2,25 @@
 	import { cn, formatDate, getTagSlug } from '$lib/utils';
 	import { Badge } from '$lib/components/ui/badge';
 	import { authors, layout, site } from '$lib/config/index';
-	import { m } from '$lib/paraglide/messages';
+	import { getLocale } from '$lib/paraglide/runtime';
 
 	let { data } = $props();
+	const locale = getLocale();
+	const content = {
+		en: {
+			title: 'Posts',
+			description:
+				'Explore our collection of marketing insights, guides, and best practices to help you grow your business.'
+		},
+		zh: {
+			title: '文章',
+			description: '探索我们的营销知识库，帮助您实现您的目标。'
+		}
+	};
 </script>
 
 <svelte:head>
-	<title>{data.title} - {m.nav_posts()} - {site.title}</title>
+	<title>{data.title} - {content[locale].title} - {site.title}</title>
 	<meta property="description" content={data.excerpt} />
 </svelte:head>
 

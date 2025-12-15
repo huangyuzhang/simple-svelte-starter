@@ -4,8 +4,19 @@
 	import { Button } from '$lib/components/ui/button';
 	import { site } from '$lib/config/index';
 	import PostListItem from '$lib/components/collections/post-list-item.svelte';
+	import { getLocale } from '$lib/paraglide/runtime';
+	import { m } from '$lib/paraglide/messages.js';
 
 	let { data } = $props();
+	const locale = getLocale();
+	const content = {
+		en:{
+			posts:"Posts"
+		},
+		zh:{
+			posts:"文章"
+		}
+	}
 </script>
 
 <svelte:head>
@@ -35,7 +46,7 @@
 		</div>
 	</div>
 
-	<h2 class="text-2xl font-bold mb-6">Posts by {data.author.name}</h2>
+	<h2 class="text-2xl font-bold mb-6">{content[locale].posts}</h2>
 	{#if data.posts.length > 0}
 		<div class="flex flex-col">
 			{#each data.posts as post}
@@ -43,6 +54,6 @@
 			{/each}
 		</div>
 	{:else}
-		<p class="text-muted-foreground">No posts found by this author.</p>
+		<p class="text-muted-foreground">{m.no_results_found()}</p>
 	{/if}
 </div>

@@ -61,7 +61,7 @@ async function getTags(): Promise<Tag[]> {
 	});
 
 	const resultTags: Tag[] = Array.from(tagCountMap.entries()).map(([name, count]) => ({
-		slug: getTagSlug(name), 
+		slug: getTagSlug(name),
 		name: name,
 		count: count
 	}));

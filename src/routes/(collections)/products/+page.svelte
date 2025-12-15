@@ -27,7 +27,7 @@
 </script>
 
 <svelte:head>
-	<title>{m.nav_products()} - {site.title}</title>
+	<title>{content[locale].title} - {site.title}</title>
 </svelte:head>
 
 <!-- Page Header -->

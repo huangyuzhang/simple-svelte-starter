@@ -6,7 +6,7 @@
 
 	const locale = getLocale();
 
-	const heading = {
+	const content = {
 		en: {
 			title: 'About Us',
 			description: 'Read our stories.'
@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-	<title>{m.nav_about()} - {site.title}</title>
+	<title>{content[locale].title} - {site.title}</title>
 </svelte:head>
 
 <!-- Page Header -->
@@ -27,8 +27,8 @@
 	<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 		<!-- Title & Description -->
 		<div>
-			<h1 class="text-3xl font-bold tracking-tight">{heading[locale].title}</h1>
-			<p class="text-muted-foreground">{heading[locale].description}</p>
+			<h1 class="text-3xl font-bold tracking-tight">{content[locale].title}</h1>
+			<p class="text-muted-foreground">{content[locale].description}</p>
 		</div>
 		<!-- Action Button -->
 		<Button>{m.btn_contact_us()}</Button>

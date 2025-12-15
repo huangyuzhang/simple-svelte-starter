@@ -3,12 +3,24 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import { authors, layout, site } from '$lib/config/index';
 	import { m } from '$lib/paraglide/messages';
+	import { getLocale } from '$lib/paraglide/runtime';
 
 	let { data } = $props();
+	const locale = getLocale();
+	const content = {
+		en: {
+			title: 'Our Products',
+			description: 'Our products are designed to help you achieve your goals.'
+		},
+		zh: {
+			title: '我们的产品',
+			description: '我们的产品旨在帮助你实现目标。'
+		}
+	};
 </script>
 
 <svelte:head>
-	<title>{data.title} - {m.nav_posts()} - {site.title}</title>
+	<title>{data.title} - {content[locale].title} - {site.title}</title>
 	<meta property="description" content={data.excerpt} />
 </svelte:head>
 
