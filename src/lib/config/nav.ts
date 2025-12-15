@@ -17,7 +17,7 @@ export const nav = {
 		},
 		{
 			name: m.nav_products(),
-			url: '#'
+			url: '/products'
 		},
 		{
 			name: m.nav_about(),

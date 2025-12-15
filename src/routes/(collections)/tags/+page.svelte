@@ -3,6 +3,7 @@
 	import { m } from '$lib/paraglide/messages';
 	import { Button } from '$lib/components/ui/button';
 	import { getLocale } from '$lib/paraglide/runtime';
+	import { Badge } from '$lib/components/ui/badge';
 	let { data } = $props();
 
 	const locale = getLocale();
@@ -39,8 +40,9 @@
 <section class="relative overflow-hidden px-4 my-8 sm:px-6 lg:px-8">
 	<div class="flex gap-3 md:grid-cols-2 lg:grid-cols-3 flex-wrap">
 		{#each data.tags as tag}
-			<Button variant="outline" href={`/tags/${tag.slug}`}>
+			<Button variant="outline" href={`/tags/${tag.slug}`} class="group">
 				<span>{tag.name}</span>
+				<Badge variant="secondary" class="border-sm group-hover:bg-background">{tag.count}</Badge>
 			</Button>
 		{/each}
 	</div>
