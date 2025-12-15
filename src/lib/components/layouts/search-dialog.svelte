@@ -7,16 +7,21 @@
 	import { IconSearch } from '@tabler/icons-svelte';
 	import FileText from '@lucide/svelte/icons/file-text';
 	import { m } from '$lib/paraglide/messages';
+	import type { Post, Product } from '$lib/types/content';
+	import { goto } from '$app/navigation';
 
 	let open = $state(false);
-	let posts: any[] = $state([]);
+	let posts: Post[] = $state([]);
+	let products: Product[] = $state([]);
 
 	onMount(() => {
 		(async () => {
 			try {
 				const response = await fetch('/api/search');
 				if (response.ok) {
-					posts = await response.json();
+					const data = await response.json();
+					posts = data.posts;
+					products = data.products;
 				}
 			} catch (error) {
 				console.error('Failed to load search results', error);
@@ -51,6 +56,24 @@
 			<Command.Input placeholder={m.search()} />
 			<Command.List>
 				<Command.Empty>{m.no_results_found()}</Command.Empty>
+				<Command.Group heading={m.nav_products()}>
+					{#each products as product}
+						<Command.Item
+							class="cursor-pointer"
+							value={`${product.title} ${product.tags.join(' ')} ${product.excerpt} ${product.date} ${product.content}`}
+							onSelect={() => {
+								open = false;
+								goto(`/products/${product.slug}`);
+							}}
+						>
+							<FileText />
+							<span>{product.title}</span>
+							<Badge variant="outline" class="text-muted-foreground text-xs">
+								{new Date(product.date).toLocaleDateString()}
+							</Badge>
+						</Command.Item>
+					{/each}
+				</Command.Group>
 				<Command.Group heading={m.nav_posts()}>
 					{#each posts as post}
 						<Command.Item
@@ -58,7 +81,7 @@
 							value={`${post.title} ${post.tags.join(' ')} ${post.excerpt} ${post.date} ${post.content}`}
 							onSelect={() => {
 								open = false;
-								window.location.href = `/posts/${post.slug}`;
+								goto(`/posts/${post.slug}`);
 							}}
 						>
 							<FileText />
