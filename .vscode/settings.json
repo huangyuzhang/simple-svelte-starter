@@ -3,5 +3,14 @@
 		"*.css": "tailwindcss"
 	},
 	"editor.formatOnSave": false,
-	"cSpell.words": ["fontsource", "mdsvex", "nunito", "oldschool", "shadcn", "shiki", "tabler"]
+	"cSpell.words": [
+		"autospace",
+		"fontsource",
+		"mdsvex",
+		"nunito",
+		"oldschool",
+		"shadcn",
+		"shiki",
+		"tabler"
+	]
 }
