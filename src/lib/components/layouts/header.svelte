@@ -13,6 +13,7 @@
 
 	const mobile = isMobile();
 
+	let isMounted = $state(false);
 	let isScrolled = $state(false);
 
 	const unScrolledContainerClasses = ['border-transparent'];
@@ -34,6 +35,7 @@
 
 	$effect(() => {
 		// browser only
+		isMounted = true;
 		if (typeof window !== 'undefined') {
 			// evaluate header position immediately after the component is mounted
 			evaluateHeaderPosition();
@@ -66,13 +68,13 @@
 	>
 		<Logo />
 		<div class="flex items-center gap-1">
-			{#if !$mobile}
+			{#if isMounted && !$mobile}
 				<Navigation />
 			{/if}
 			<SearchDialog />
 			<I18nToggle />
 			<ModeToggle />
-			{#if $mobile}
+			{#if isMounted && $mobile}
 				<MobileNav />
 			{/if}
 		</div>

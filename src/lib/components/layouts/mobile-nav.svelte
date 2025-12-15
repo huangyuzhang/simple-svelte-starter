@@ -8,8 +8,8 @@
 
 <Sheet.Root bind:open>
 	<Sheet.Trigger>
-		<IconMenu2 class={open ? 'hidden' : ''} />
-		<IconX class={open ? '' : 'hidden'} />
+		<IconMenu2 class={open ? 'hidden' : 'size-4'} />
+		<IconX class={open ? 'size-4' : 'hidden'} />
 	</Sheet.Trigger>
 	<Sheet.Content>
 		<Sheet.Header>
