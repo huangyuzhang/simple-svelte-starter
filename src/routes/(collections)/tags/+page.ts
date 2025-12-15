@@ -20,7 +20,7 @@ function processGlobPaths(paths: Record<string, any>): CollectionItem[] {
 	const items: CollectionItem[] = Object.entries(paths).map(([path, module]) => {
 		const file = module as { metadata: Record<string, any> };
 
-		// 从路径中提取 slug
+		// get slug from path
 		const slugMatch = path.split('/').at(-1);
 		const slug = slugMatch?.replace('.md', '') ?? 'no-slug';
 
@@ -42,7 +42,6 @@ function processGlobPaths(paths: Record<string, any>): CollectionItem[] {
  * Get all unique tags from collections: posts, products, along with their count.
  */
 async function getTags(): Promise<Tag[]> {
-	// 1. 获取所有内容项
 	const postPaths = import.meta.glob('/src/collections/posts/*.md', { eager: true });
 	const postItems = processGlobPaths(postPaths);
 
@@ -51,27 +50,22 @@ async function getTags(): Promise<Tag[]> {
 
 	const allItems: CollectionItem[] = [...postItems, ...productItems];
 
-	// 2. 统计每个标签的出现次数
 	const tagCountMap = new Map<string, number>();
 
 	allItems.forEach((item) => {
 		item.tags.forEach((tag) => {
-			// 确保标签是有效的字符串
 			if (typeof tag === 'string' && tag.length > 0) {
-				// 使用 Map 统计，如果标签不存在则初始化为 1，否则加 1
 				tagCountMap.set(tag, (tagCountMap.get(tag) ?? 0) + 1);
 			}
 		});
 	});
 
-	// 3. 将 Map 转换为 Tag[] 数组结构
 	const resultTags: Tag[] = Array.from(tagCountMap.entries()).map(([name, count]) => ({
-		slug: getTagSlug(name), // 使用原有的工具函数生成 slug
+		slug: getTagSlug(name), 
 		name: name,
-		count: count // 包含计数
+		count: count
 	}));
 
-	// 可选：按内容数量降序排列
 	resultTags.sort((a, b) => b.count - a.count);
 
 	return resultTags;
