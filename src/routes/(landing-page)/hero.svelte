@@ -55,7 +55,7 @@
 			<div class="order-2 lg:order-2 hidden sm:block" in:fly={{ y: 50, duration: 1000 }}>
 				<div class="relative mx-auto max-w-[500px]">
 					<div class="aspect-square overflow-hidden rounded-2xl">
-						<img src={IllustrationCelebration} alt="Placeholder" class="size-full object-cover" />
+						<enhanced:img loading="lazy" src={IllustrationCelebration} alt="Placeholder" class="size-full object-cover" />
 					</div>
 					<div
 						class="absolute -bottom-4 -right-4 size-full rounded-2xl border-0 border-dashed border-muted"
