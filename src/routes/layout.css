@@ -2,6 +2,7 @@
 @plugin '@tailwindcss/typography';
 @import 'tw-animate-css';
 @import '@fontsource-variable/nunito';
+@config "../../tailwind.config.ts";
 
 @custom-variant dark (&:is(.dark *));
 
