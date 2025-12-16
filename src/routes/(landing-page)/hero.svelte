@@ -35,13 +35,13 @@
 				class="order-1 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left"
 				in:fade={{ duration: 1000 }}
 			>
-				<h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+				<h1 class="text-5xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
 					{@html data[locale].title}
 				</h1>
-				<p class="mt-6 text-lg leading-relaxed text-muted-foreground">
+				<p class="mt-6 text-lg leading-relaxed text-muted-foreground max-w-3/4">
 					{@html data[locale].subtitle}
 				</p>
-				<div class="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+				<div class="mt-8 flex flex-row gap-4 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
 					<Button size="lg" href={data[locale].link_contact}>
 						{data[locale].btn_query}
 					</Button>
@@ -55,7 +55,12 @@
 			<div class="order-2 lg:order-2 hidden sm:block" in:fly={{ y: 50, duration: 1000 }}>
 				<div class="relative mx-auto max-w-[500px]">
 					<div class="aspect-square overflow-hidden rounded-2xl">
-						<enhanced:img loading="lazy" src={IllustrationCelebration} alt="Placeholder" class="size-full object-cover" />
+						<enhanced:img
+							loading="lazy"
+							src={IllustrationCelebration}
+							alt="Placeholder"
+							class="select-none touch-none size-full object-cover"
+						/>
 					</div>
 					<div
 						class="absolute -bottom-4 -right-4 size-full rounded-2xl border-0 border-dashed border-muted"
